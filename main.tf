@@ -25,4 +25,9 @@ module "s3_backend" {
   source = "./modules/s3-backend"
 }
 
-# додаватимемо інші модулі далі
+
+module "s3_backend" {
+  source             = "./modules/s3-backend"
+  bucket_name        = "maksmvs-ci-cd-terraform-state"
+  dynamodb_table_name = "terraform-locks"
+}
