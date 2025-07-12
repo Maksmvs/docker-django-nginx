@@ -1,0 +1,20 @@
+controller:
+  image: "jenkins/jenkins:lts"
+  adminPassword: "adminpassword"
+
+  servicePort: 8080
+  serviceType: LoadBalancer
+
+agent:
+  enabled: true
+  kubernetes:
+    namespace: jenkins
+    yaml: |
+      apiVersion: v1
+      kind: Pod
+      spec:
+        containers:
+          - name: kaniko
+            image: gcr.io/kaniko-project/executor:latest
+            args:
+              - "--cache=true"
