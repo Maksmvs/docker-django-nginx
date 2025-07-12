@@ -1,0 +1,7 @@
+server:
+  service:
+    type: LoadBalancer
+
+configs:
+  repositories:
+    - url: https://github.com/your-user/helm-chart-repo.git

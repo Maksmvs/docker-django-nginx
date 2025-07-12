@@ -1,0 +1,14 @@
+image:
+  repository: "<ECR_REPO_URL>"
+  tag: "latest"
+
+replicaCount: 1
+
+service:
+  type: ClusterIP
+  port: 8000
+
+env:
+  DJANGO_SETTINGS_MODULE: "myproject.settings"
+
+resources: {}
